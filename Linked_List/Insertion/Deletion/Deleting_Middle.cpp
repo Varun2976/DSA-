@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-//******************** REMOVING A NODE FROM THE FRONT*********************
+//******************** REMOVING A NODE FROM THE MIDDLE*********************
 class Node{
     public:
     int data;
@@ -18,13 +18,10 @@ class List{
     List() {
         head = tail = NULL;
         }
-    void Delete_front(){
+    void Delete_Middle(int pos){
         Node *temp = head;
-        head = head -> next;
-        delete temp;
-        if(head == NULL){
-            head = tail = NULL;
-        }
+        int count = 0;
+        
        
     }
     
