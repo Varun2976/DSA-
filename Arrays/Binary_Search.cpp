@@ -15,10 +15,10 @@ int Binary_search(vector<int> arr , int tar)
         int mid = (st + end) / 2; 
 
         if(tar > arr[mid]){
-            st = mid + 1; 
+            st = mid + 1;  //2nd half
         }
         else if(tar < arr[mid]){
-            end = mid - 1;
+            end = mid - 1; //1st half
         }
         else{
             return mid;
