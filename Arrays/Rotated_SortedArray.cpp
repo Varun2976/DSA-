@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
+// ----------------------- Rotated Sorted Array -------------------------------
 int search(vector<int>nums , int target ){
      int st = 0, end = nums.size() - 1;
 
