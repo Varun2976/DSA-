@@ -23,6 +23,16 @@ class List{
     List() {
         head = tail = NULL;
         }
+    void Middle(){
+        Node* slow = head;
+        Node* fast = head;
+
+        while(fast!=NULL && fast -> next -> next != NULL){
+            slow = slow -> next;
+            fast = fast -> next -> next;
+        }
+        return slow;
+    }
     
     void printLL(){
         Node *temp = head;
