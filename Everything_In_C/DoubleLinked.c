@@ -30,6 +30,17 @@ void insert_at_end(){
     }
 
 }
+void delete_at_front(){
+    temp = first;
+    first = first -> next;
+    
+    if(first != NULL){
+        first -> prev = NULL;
+        
+    }
+    temp -> next = NULL;
+    free(temp);
+}
 void display(){
     if(first == NULL){
         printf("The list is empty.");
@@ -46,6 +57,7 @@ int main(){
     insert_at_end();
     insert_at_end();
     insert_at_end();
+    delete_at_front();
     display();
 
     
