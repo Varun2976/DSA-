@@ -1,1 +1,2 @@
 Preorder = PLR
+PostOrder = LRP
