@@ -48,9 +48,44 @@ void insert_at_front(){
         last -> next = new_record;
     }
 }
+void delete_at_front(){
+    if(first == NULL){
+        printf("stack is empty.");
+    }
+    temp == first;
+    if(first == last){
+        first = NULL;
+        last = NULL;
+    }
+    else{
+        first = first -> next;
+        first -> prev = last;
+        last -> next = first;
+
+    }
+    free(temp);
+}
+void delete_at_end(){
+    if(first == NULL){
+        printf("The stack is empty");
+    }
+    temp = last;
+    if(first == last){
+        first = NULL;
+        last = NULL;
+    }
+    else{
+        last = last -> prev;
+        last-> next = first;
+        first -> prev = last;
+
+    }
+    free(temp);
+    
+}
 void display() {
     if (first == NULL) {
-        printf("The list is empty.\n");
+        printf("The stack is empty.\n");
         return;
     }
 
@@ -67,6 +102,7 @@ int main(){
     insert_at_front();
     insert_at_front();
     insert_at_front();
+    delete_at_end();
     display();
     return 0;
 }
