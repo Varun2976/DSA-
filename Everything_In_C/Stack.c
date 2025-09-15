@@ -33,6 +33,14 @@ void pop(){
     free(temp);
 
 }
+void peek(){
+    if(isEmpty()){
+        printf("Stack is empty.");
+    }
+    else{
+        printf("Top : %d",top -> data);
+    }
+}
 void display(){
     if(isEmpty()){
         printf("Stack is empty");
@@ -48,6 +56,6 @@ void display(){
 int main(){
 
     
-    display();
+    
     return 0;
 }
