@@ -29,6 +29,25 @@ void insert_at_end(){
     }
 
 }
+void insert_at_front(){
+    new_record = (struct node *)malloc(sizeof(struct node));
+    printf("Enter the data you wanna insert at the first part :");
+    scanf("%d" , &new_record -> data);
+
+    if(first == NULL){
+        first = new_record;
+        last = new_record;
+        first -> next = first;
+        first -> prev = last;
+    }
+    else{
+        new_record -> next = first;
+        first -> prev = new_record;
+        first = new_record;
+        new_record -> prev = last;
+        last -> next = new_record;
+    }
+}
 void display() {
     if (first == NULL) {
         printf("The list is empty.\n");
@@ -40,14 +59,14 @@ void display() {
         printf("%d ", temp->data);
         temp = temp->next;
     }
-    printf("%d\n", temp->data); // print last node
+    printf("%d\n", temp->data); 
 }
 int main(){
-    insert_at_end();
-    insert_at_end();
-    insert_at_end();
-    insert_at_end();
-    insert_at_end();
+    insert_at_front();
+    insert_at_front();
+    insert_at_front();
+    insert_at_front();
+    insert_at_front();
     display();
     return 0;
 }
