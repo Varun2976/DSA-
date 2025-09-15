@@ -24,6 +24,15 @@ void push(){
     new_record -> next = top;
     top = new_record;
 }
+void pop(){
+    if(isEmpty()){
+        printf("Stack underflow.");
+    }
+    struct stack *temp = top;
+    top = top -> next;
+    free(temp);
+
+}
 void display(){
     if(isEmpty()){
         printf("Stack is empty");
@@ -38,10 +47,7 @@ void display(){
 }
 int main(){
 
-    push();
-    push();
-    push();
-    push();
+    
     display();
     return 0;
 }
