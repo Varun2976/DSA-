@@ -10,11 +10,13 @@ void create(){
     struct queue *front = NULL;
     struct queue *rear = NULL;
 }
-void enqueue(int val){
+void enqueue(){
     new_record = (struct queue *)malloc(sizeof(struct queue));
-    
+    printf("Enter a data to insert : ");
+    scanf("%d" , &new_record->data);
     if(rear == NULL){
-        front = rear = NULL;
+        front = rear = new_record;
+        new_record -> next = NULL;
     }
     else{
         rear -> next = new_record;
@@ -31,10 +33,24 @@ void dequeue(){
 
     
 }
+void display(){
+    temp = front;
+    while(front != NULL){
+        printf("%d" , temp -> data);
+        temp = temp -> next;
+    }
+}
 
 
 
 int main()
-{
+{   
+    enqueue();
+    enqueue();
+    enqueue();
+    enqueue();
+    display();
+    dequeue();
+    display();
     return 0;
 }
