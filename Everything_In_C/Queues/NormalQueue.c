@@ -26,6 +26,7 @@ void enqueue(){
 void dequeue(){
     if(front == NULL){
         printf("The stack is empty.");
+        return;
     }
     temp = front;
     front = front -> next;
@@ -49,8 +50,8 @@ int main()
     enqueue();
     enqueue();
     enqueue();
-    display();
     dequeue();
     display();
+   
     return 0;
 }
