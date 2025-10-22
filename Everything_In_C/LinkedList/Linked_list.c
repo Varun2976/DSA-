@@ -68,6 +68,22 @@ void insert_at_middle(){
     
     
 }
+void delete_at_front(){
+    if(first == NULL){
+        printf("List is empty\n");
+        return;
+    }
+    temp = first;
+
+    first = first -> next;
+
+    free(temp);
+    if(first == NULL){
+
+        last = NULL;
+    }
+    
+}
 void display(){
     new_record = first;
     while(new_record != NULL){
@@ -81,10 +97,11 @@ void display(){
 int main()
 {
     create();
-    insert_at_back();
-    insert_at_back();
-    insert_at_back();
-    insert_at_back();
+    insert_at_front();
+    insert_at_front();
+    insert_at_front();
+    insert_at_front();
+    delete_at_front();
     display();
 
     return 0;
