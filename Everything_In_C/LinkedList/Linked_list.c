@@ -40,7 +40,31 @@ void insert_at_back(){
     }
 }
 void insert_at_middle(){
+    int pos , i = 1;
+    printf("Enter new value : ");
+    scanf("%d" , &new_record -> data);
     new_record = (struct node *)malloc(sizeof(struct node));
+
+    if(first == NULL){
+        first = last = new_record;
+        return;
+    }
+    temp = first;
+    while(i < pos && temp != NULL){
+        temp = temp -> next;
+        i++;
+    }
+    if(temp == NULL){
+        printf("\nPosition out of range.");
+        free(new_record);
+        return;
+    }
+    new_record->next = temp-> next;
+    temp -> next = new_record;
+
+    if(temp == last){
+        last = new_record;
+    }
     
     
 }
