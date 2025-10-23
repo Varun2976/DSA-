@@ -39,6 +39,29 @@ void insert_at_end(){
         last = new_record;
     }
 }
+void insert_at_middle(int pos){
+    new_record = (struct Student *)malloc(sizeof(struct Student));
+    
+    printf("Enter the value you wanna insert somewhere : ");
+    scanf("%d"., &new_record -> data);
+
+    if(pos <= 1){
+        insert_at_front();
+        return;
+    }
+    temp == first;
+    int count = 1;
+
+    while(temp != NULL && count < pos -1){
+        temp = temp -> next;
+        count++;
+    }
+    if(temp == NULL){
+        printf("The list ii empty");
+        return;
+    }
+    if(temp == last)
+}
 void display(){
     if(first == NULL){
         printf("This is an empty list.");

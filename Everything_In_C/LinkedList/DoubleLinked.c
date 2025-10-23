@@ -82,7 +82,7 @@ void delete_at_front(){
         first -> prev = NULL;
         
     }
-    temp -> next = NULL;
+    
     free(temp);
 }
 void delete_at_end(){
@@ -138,6 +138,7 @@ int main(){
     insert_at_end();
     insert_at_end();
     insert_at_end();
+    delete_at_front();
     
     display();
     insert_at_middle(3);
