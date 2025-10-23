@@ -30,6 +30,23 @@ void insert_at_end(){
     }
 
 }
+void insert_at_front(){
+    new_record = (struct node *)malloc(sizeof(struct node));
+    printf("Enter the value you wanna insert : ");
+    scanf("%d" , &new_record -> data);
+    new_record -> prev = NULL;
+
+    if(first == NULL){
+        new_record -> next = NULL;
+        first = last = new_record;
+    }
+    else{
+        new_record -> next = first;
+        first -> prev = new_record;
+        first = new_record;
+    }
+
+}
 void delete_at_front(){
     temp = first;
     first = first -> next;
