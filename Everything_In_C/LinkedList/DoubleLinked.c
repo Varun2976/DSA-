@@ -94,6 +94,35 @@ void delete_at_end(){
     temp -> prev = NULL;
     free(temp);
 }
+void delete_at_middle(int pos){
+    if(first == NULL){
+        printf("List is empty");
+        return;
+    }
+
+    temp = first;
+    int count = 1;
+
+    while(temp != NULL && count < pos){
+        temp = temp -> next;
+        count++;
+    }
+    if(temp == NULL){
+        printf("\nPosition out of range");
+        return;
+    }
+    if(temp == first){
+        delete_at_front();
+        return;
+    }
+    if(temp == last){
+        delete_at_end();
+        return;
+    }
+    temp -> prev -> next = temp -> next;
+    temp ->  prev -> next = temp -> prev;
+    free(temp);
+}
 void display(){
     if(first == NULL){
         printf("The list is empty.");
