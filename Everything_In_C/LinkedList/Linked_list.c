@@ -84,6 +84,24 @@ void delete_at_front(){
     }
     
 }
+void delete_at_back(){
+    if(first == NULL){
+        printf("List is empty\n");
+        return;
+    }
+    if(first == last){
+        free(first);
+        first = last = NULL;
+        return;
+    }
+    temp = first;
+    while(temp -> next != last){
+        temp = temp -> next;
+    }
+    free(last);
+    last = temp;
+    last -> next = NULL;
+}
 void display(){
     new_record = first;
     while(new_record != NULL){
