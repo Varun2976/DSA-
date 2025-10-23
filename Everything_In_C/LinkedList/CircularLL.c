@@ -36,6 +36,7 @@ void insert_at_end(){
         new_record -> prev = last;
         new_record -> next = first;
         first -> prev = new_record;
+        last = new_record;
     }
 }
 void display(){
@@ -43,11 +44,10 @@ void display(){
         printf("This is an empty list.");
     }
     temp = first;
-    while(first != NULL){
-        printf("%d", temp -> data);
-        temp = temp -> next;
-
-    }
+    do {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    } while(temp != first);
 }
 int main(){
 
