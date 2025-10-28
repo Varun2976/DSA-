@@ -24,6 +24,25 @@ void push(){
     new_record -> next = top;
     top = new_record;
 }
+void infixtopostfix(char *infix , char *postfix){
+    int i,k = 0;
+    for(i = 0; infix[i];i++){
+        char c = infix[i];
+        if(isalnum(c)){
+            postfix[i++];
+        }
+        else if(c == "("){
+            push(c);
+        }
+        else if(c == ")"){
+
+        }
+    }
+
+}
+void infixtoprefix(){
+    
+}
 void pop(){
     if(isEmpty()){
         printf("Stack underflow.");
@@ -41,6 +60,27 @@ void peek(){
         printf("Top : %d",top -> data);
     }
 }
+int precedence(char c){
+    if(c =="^"){
+        return 3;
+    }
+    else if(c == "*" || c == "/"){
+        return 2;
+    }
+    else if(c=="+" || c == "-"){
+        return 1;
+    }
+    return -1;
+}
+void reverse(char *exp){
+    int len = strlen(exp);
+    for(int i = 0 ; i < len/2 ; i++){
+        char temp = exp[i];
+        exp[i] = exp[len - i - 1];
+        exp[len - i - 1] = temp;
+    }
+}
+
 void display(){
     if(isEmpty()){
         printf("Stack is empty");
