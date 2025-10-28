@@ -110,7 +110,24 @@ void display(){
         
     }
 }
-    
+void sort(){
+    struct node *i , *j;
+    int temp;
+    if(head == NULL){
+        printf("List is empty");
+        return;
+    }
+    for(i = head ; i -> next != NULL ; i-> next){
+        for(j = i -> next , j -> next != NULL ; j -> next){
+            if(i -> next > j -> next){
+                temp = i -> data;
+                i -> data = j -> data;
+                j -> data = temp;
+            }
+        }
+    }
+    printf("List sorted Successfully");
+}
 
 int main()
 {
