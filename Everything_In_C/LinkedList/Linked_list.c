@@ -117,12 +117,12 @@ void sort(){
         printf("List is empty");
         return;
     }
-    for(i = head ; i -> next != NULL ; i-> next){
-        for(j = i -> next , j -> next != NULL ; j -> next){
+    for(i = head ; i -> next != NULL ; i = i-> next){
+        for(j = i -> next , j  != NULL ; j = j -> next){
             if(i -> next > j -> next){
-                temp = i -> data;
-                i -> data = j -> data;
-                j -> data = temp;
+                temp = i -> marks;
+                i -> marks = j -> marks;
+                j -> marks = temp;
             }
         }
     }
