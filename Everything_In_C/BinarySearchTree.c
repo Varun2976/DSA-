@@ -42,7 +42,14 @@ void insert(){
 
 
 }
-void 
+void Inorder(struct node *ptr){
+    if(ptr != NULL){
+        Inorder(ptr -> left);
+        printf("%d" , ptr -> data);
+        Inorder(ptr -> right);
+    }
+    
+} 
 
 int main()
 {
