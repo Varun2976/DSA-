@@ -17,6 +17,7 @@ void insert(int val){
     prev = root;
     temp = root;
     if(root == NULL){
+        prev = temp;
         root = new_record;
     }
     else{
@@ -46,14 +47,32 @@ void Inorder(struct node *ptr){
         Inorder(ptr -> right);
     }
 }
+#define MAX 100;
+void bfs(struct node *root){
+    if(root == NULL){
+        return;
+    }
+    struct node *queue[MAX];
+    int front = 0 , rear = 0;
+
+    queue[rear++] = root;
+    while(front < rear){
+        struct node *current = queue[front++];
+        printf("%d " , current -> data);
+        if(current -> left != NULL){
+            queue[rear++] = current -> left;
+        }
+        if(current -> right != NULL){
+            queue[rear++] = current -> right;
+        }
+    }
+
+    
+
+
+}
 int main(){
-    create();
-    insert(23);
-    insert(32);
-    insert(45);
-    insert(10);
-    insert(20);
-    Inorder(root);
+   
     
 
 
