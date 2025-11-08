@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct node{
     int data;
     struct node *left , *right;
-}*first,*last,*temp,*new_record;
+}*first,*last,*temp,*next,*prev,*new_record,*root;
 void create(){
-    root == NULL;
+    root = NULL;
 }
 void insert(int val){
     new_record = (struct node *)malloc(sizeof(struct node));
@@ -16,7 +17,7 @@ void insert(int val){
     prev = root;
     temp = root;
     if(root == NULL){
-        root == new_record;
+        root = new_record;
     }
     else{
         prev = root;
@@ -29,7 +30,7 @@ void insert(int val){
                 temp = temp -> right;
             }
         }
-        if(new_record -> data = prev -> data){
+        if(new_record -> data <= prev -> data){
             prev -> left = new_record;
         }
         else{
@@ -37,8 +38,23 @@ void insert(int val){
         }
     }
 }
-int main(){
 
+void Inorder(struct node *ptr){
+    if(ptr != NULL){
+        Inorder(ptr -> left);
+        printf("%d" , ptr -> data);
+        Inorder(ptr -> right);
+    }
+}
+int main(){
+    create();
+    insert(23);
+    insert(32);
+    insert(45);
+    insert(10);
+    insert(20);
+    Inorder(root);
+    
 
 
     return 0;
