@@ -3,36 +3,36 @@
 
 struct node{
     int data;
-    struct node* next;
-}*new_record, *first,*last,*temp;
-void create()
-{
+    struct node *next;
+}*first,*last,*temp,*prev,*new_record,*root;
+void create(){
     first = NULL;
     last = NULL;
 }
-void insert_at_front(){
+void insert_at_end(){
     new_record = (struct node *)malloc(sizeof(struct node));
-    printf("Enter new data : ");
+    printf("Insert a value at the end : ");
     scanf("%d" , &new_record -> data);
-
-    new_record -> next = NULL;
 
     if(first == NULL){
         first = new_record;
         last = new_record;
     }
     else{
+        new_record -> next = NULL;
         last -> next = new_record;
         last = new_record;
     }
 }
-void insert_at_back(){
+void insert_at_front(){
     new_record = (struct node *)malloc(sizeof(struct node));
-    printf("Enter new data :");
+    printf("Enter the data you wanna enter at the front : ");
     scanf("%d" , &new_record -> data);
 
+    
     if(first == NULL){
-        first = last = new_record;
+        first = new_record;
+        last = new_record;
     }
     else{
         new_record -> next = first;
@@ -40,104 +40,111 @@ void insert_at_back(){
     }
 }
 void insert_at_middle(){
-    int pos , i = 1;
-    printf("Enter new value : ");
-    scanf("%d" , &new_record -> data);
+    int pos;
+    printf("Enter the position you wanna insert after : ");
+    scanf("%d" , &pos);
     new_record = (struct node *)malloc(sizeof(struct node));
+    printf("Enter the value to insert at middle : ");
+    scanf("%d" , &new_record -> data);
 
-    if(first == NULL){
-        first = last = new_record;
-        return;
-    }
     temp = first;
-    while(i < pos && temp != NULL){
-        temp = temp -> next;
-        i++;
+
+    for(int i = 1 ; i < pos ; i++){
+        if(temp == NULL){
+            printf("Out of range \n");
+            return;
+        }
+        else{
+            temp = temp -> next;
+        }
     }
+
     if(temp == NULL){
-        printf("\nPosition out of range.");
-        free(new_record);
+        printf("Out of range \n");
         return;
     }
-    new_record->next = temp-> next;
+    if(temp == last){
+        insert_at_end();
+        return;
+    }
+    new_record -> next = temp -> next;
     temp -> next = new_record;
 
-    if(temp == last){
-        last = new_record;
-    }
     
-    
+
 }
-void delete_at_front(){
-    if(first == NULL){
-        printf("List is empty\n");
-        return;
-    }
-    temp = first;
 
-    first = first -> next;
-
-    free(temp);
+void delete_at_end(){
     if(first == NULL){
-
-        last = NULL;
-    }
-    
-}
-void delete_at_back(){
-    if(first == NULL){
-        printf("List is empty\n");
+        printf("Nothing to delete \n");
         return;
     }
     if(first == last){
         free(first);
         first = last = NULL;
-        return;
     }
     temp = first;
+
     while(temp -> next != last){
         temp = temp -> next;
     }
+
     free(last);
     last = temp;
     last -> next = NULL;
 }
-void display(){
-    new_record = first;
-    while(new_record != NULL){
-        printf("%d ->" , new_record -> data);
-        new_record = new_record -> next;
-        
-    }
-}
-void sort(){
-    struct node *i , *j;
-    int temp;
-    if(head == NULL){
-        printf("List is empty");
+void delete_at_front(){
+    if(first == NULL){
+        printf("Nothing to delete.\n");
         return;
     }
-    for(i = head ; i -> next != NULL ; i = i-> next){
-        for(j = i -> next , j  != NULL ; j = j -> next){
-            if(i -> next > j -> next){
-                temp = i -> marks;
-                i -> marks = j -> marks;
-                j -> marks = temp;
-            }
-        }
-    }
-    printf("List sorted Successfully");
-}
+    temp = first;
+    first = first -> next;
+    free(temp);
 
-int main()
-{
-    create();
-    insert_at_front();
-    insert_at_front();
-    insert_at_front();
-    insert_at_front();
-    delete_at_front();
-    display();
+    if(first == NULL){
+        last = NULL;
+    }
+}
+void delete_at_middle(){
+    int pos ;
+    printf("Enter the positon you wanna delete your data from : ");
+    scanf("%d" , &pos);
+    if(pos == 1){
+        delete_at_front();
+        return;
+    }
+    temp = first;
+    for(int i =1 ; i < pos - 1 ; i++){
+        if(temp == NULL || temp -> next == NULL){
+            printf("Position out of range.");
+            return;
+        }
+        temp = temp -> next;
+    }
+    struct node *new_record = temp -> next; //here i am using new_record just for deletion , no actual new node is being created
+    if(temp -> next == last){
+        delete_at_end();
+    }
+    temp -> next = new_record -> next;
+    free(new_record);
+    
+}
+void display(){
+    if(first == NULL)
+    {
+        printf("Nothing to display.");
+    }
+    temp = first;
+    while(temp != NULL){
+        printf("%d  " , temp -> data);
+        temp = temp -> next;
+    }
+}
+int main(){
+   
+    
+
 
     return 0;
 }
