@@ -6,70 +6,37 @@ struct node{
     struct node *left , *right;
 }*first,*last,*temp,*next,*prev,*new_record,*root;
 void create(){
-    root = NULL;
+    first = NULL;
+    last = NULL;
 }
-void insert(int val){
+void insert_at_end(){
     new_record = (struct node *)malloc(sizeof(struct node));
-    new_record -> data = val;
-    new_record -> left = NULL;
-    new_record -> right = NULL;
+    printf("Insert a value at the end : ");
+    scanf("%d" , &new_record -> data);
 
-    prev = root;
-    temp = root;
-    if(root == NULL){
-        prev = temp;
-        root = new_record;
+    if(first == NULL){
+        first = new_record;
+        last = new_record;
     }
     else{
-        prev = root;
-        temp = root;
-        while(temp != NULL){
-            if(new_record -> data <= temp -> data){
-                temp = temp -> left;
-            }
-            else{
-                temp = temp -> right;
-            }
-        }
-        if(new_record -> data <= prev -> data){
-            prev -> left = new_record;
-        }
-        else{
-            prev -> right = new_record;
-        }
+        new_record -> next = NULL;
+        last -> next = new_record;
+        last = new_record;
     }
 }
+void insert_at_front(){
+    new_record = (struct node *)malloc(sizeof(struct node));
+    printf("Enter the data you wanna enter at the front : ");
+    scanf("%d" , &new_record -> data);
 
-void Inorder(struct node *ptr){
-    if(ptr != NULL){
-        Inorder(ptr -> left);
-        printf("%d" , ptr -> data);
-        Inorder(ptr -> right);
+    if(first == NULL){
+        first = new_record;
+        last = new_record;
     }
-}
-#define MAX 100;
-void bfs(struct node *root){
-    if(root == NULL){
-        return;
+    else{
+        new_record -> next = first;
+        first == new_record;
     }
-    struct node *queue[MAX];
-    int front = 0 , rear = 0;
-
-    queue[rear++] = root;
-    while(front < rear){
-        struct node *current = queue[front++];
-        printf("%d " , current -> data);
-        if(current -> left != NULL){
-            queue[rear++] = current -> left;
-        }
-        if(current -> right != NULL){
-            queue[rear++] = current -> right;
-        }
-    }
-
-    
-
-
 }
 int main(){
    
