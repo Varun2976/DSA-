@@ -1,0 +1,1 @@
+strlen() ---> tells you the length of the string
