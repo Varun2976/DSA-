@@ -21,8 +21,7 @@ void insert(int val){
         root = new_record;
     }
     else{
-        prev = root;
-        temp = root;
+        
         while(temp != NULL){
             if(new_record -> data <= temp -> data){
                 temp = temp -> left;
