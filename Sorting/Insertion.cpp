@@ -1,22 +1,31 @@
 #include <iostream>
-void insertion_sort(int arr[] , int n)
-{
-    for(int i = 0 ; i < n ; i++){
-        int current = arr[i];
-        int prev = i -1;
+using namespace std;
 
-        while(prev >=0 && arr[prev]>current){
-            arr[prev+1] = arr[prev];
-            prev--;
+void insertion_sort(int arr[], int n)
+{
+    for(int i = 1; i < n; i++){
+        int current = arr[i];
+        int j = i - 1;
+
+        while(j >= 0 && arr[j] > current){
+            arr[j + 1] = arr[j];
+            j--;
         }
-        arr[prev+1] == current; // placing the correct element in its correct position
+        arr[j + 1] = current;
+
+        
+        for(int k = 0; k < n; k++){
+            cout << arr[k] << " ";
+        }
+        cout << " -> Pass " << i <<endl;
     }
 }
+
 int main()
 {
-    int n = 5;
-    int arr[] = {4,1,5,2,3};
-    
+    int arr[] = {4, 1, 5, 2, 3};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
+    insertion_sort(arr, n);
     return 0;
 }
