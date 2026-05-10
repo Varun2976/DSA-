@@ -19,7 +19,7 @@ int main(){
     }
     for(int val : ans){
         cout << val << " ";
-    }d
+    }
 
     return 0;
 }
