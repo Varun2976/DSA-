@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
-
+void nextGreaterElement(){
     vector<int>arr={6,8,0,1,3};
     stack<int>st;
     vector<int> ans(arr.size(),0);
@@ -20,6 +19,10 @@ int main(){
     for(int val : ans){
         cout << val << " ";
     }
+}
+int main(){
+
+    
 
     return 0;
 }
