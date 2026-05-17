@@ -36,7 +36,7 @@ int optimal(vector<int>&heights){
             s.pop();
         }
 
-        right[i] = s.empty() ? -1 : s.top();
+        right[i] = s.empty() ? n : s.top();
         s.push(i);
     }
 
