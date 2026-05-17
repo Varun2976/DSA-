@@ -53,7 +53,7 @@ int optimal(vector<int>&heights){
         left[i] = s.empty() ? -1 : s.top();
         s.push(i);
     }
-
+    int ans = 0;
     for(int i = 0 ; i < n ;i++){
         int width = right[i] - left[i] - 1;
         int area = heights[i] * width;
