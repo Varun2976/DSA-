@@ -11,7 +11,7 @@ void nextGreaterElement(){
         if(st.empty()){
             ans[i] = -1;
         }else{
-            ans[i] = st.top();
+            ans[i] = s
         }
 
         st.push(arr[i]);
