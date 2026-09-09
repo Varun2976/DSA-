@@ -19,8 +19,8 @@ bool isSameTree(Node* p , Node* q){
         return p == q;
     }
 
-    isSameLeft = isSameTree(p-> left,q->left);
-    isSameRight = isSameTree(p-> right,q->right);
+    bool isSameLeft = isSameTree(p-> left,q->left);
+    bool isSameRight = isSameTree(p-> right,q->right);
 
     return isSameLeft && isSameRight && p->val == q->val;
 }
