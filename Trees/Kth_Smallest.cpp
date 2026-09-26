@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int prevOrder = 0;
+    int kthSmallest(TreeNode* root, int k) {
+        if(root == NULL){
+            return -1;
+        }
+
+        if(root -> left){
+            int leftAns = kthSmallest(root -> left,k);
+            if(leftAns != -1){
+                return leftAns;
+            }
+        }
+
+        if(prevOrder+1 == k){
+            return root -> val;
+        }
+        prevOrder = prevOrder + 1;
+
+        if(root -> right){
+            int rightAns = kthSmallest(root -> right,k);
+            if(rightAns != -1){
+                return rightAns;
+            }
+        }
+        return -1;
+    }
+int main(){
+    return 0;
+}
